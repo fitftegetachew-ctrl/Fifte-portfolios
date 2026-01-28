@@ -1,0 +1,216 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --bg-color: #121212;
+    --bg-secondary: #1f1f1f;
+    --text-color: #ffffff;
+    --primary-color: #00adb5; /* This is your highlight color */
+    --nav-height: 70px;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-height);
+}
+
+/* Typography & Utilities */
+.highlight { color: var(--primary-color); }
+h1 { font-size: 3rem; }
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+h2 i { margin-right: 10px; color: var(--primary-color); }
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--nav-height);
+    padding: 0 10%;
+    background: rgba(31, 31, 31, 0.95); /* Slightly transparent */
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+.logo { font-size: 1.5rem; font-weight: bold; }
+
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 25px; }
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--primary-color);
+}
+
+/* Sections General */
+section { padding: 100px 10%; min-height: 80vh; /* Makes sections taller */ }
+section:nth-child(even) { background-color: var(--bg-secondary); }
+
+/* --- HERO SECTION & PROFILE PICTURE --- */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 150px; /* Extra padding for header space */
+}
+
+/* The new profile picture styles */
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%; /* Makes it a perfect circle */
+    object-fit: cover; /* Prevents image distortion */
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 0 25px rgba(0, 173, 181, 0.4); /* Cool glow effect */
+    margin-bottom: 25px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin: 15px 0 30px 0;
+    color: #cccccc;
+}
+
+/* Buttons */
+.hero-btns { display: flex; gap: 15px; }
+.btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    border: 2px solid var(--primary-color);
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.btn:hover { background: transparent; color: var(--primary-color); }
+
+.btn-outline {
+    background: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+}
+.btn-outline:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+    border-color: var(--text-color);
+}
+
+
+/* Skills Progress Bars */
+.skill-container { max-width: 800px; margin: 0 auto; }
+.skill-box { margin-bottom: 25px; }
+.skill-name {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.skill-name i { margin-right: 8px; color: var(--primary-color);}
+
+.progress-bar {
+    background: #333;
+    border-radius: 20px;
+    height: 20px;
+    overflow: hidden; /* Ensures internal bar doesn't spill out */
+}
+
+.progress {
+    height: 100%;
+    background: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 20px;
+    /* Simple animation on load */
+    animation: loadProgress 2s ease-in-out forwards;
+}
+@keyframes loadProgress { from { width: 0; } }
+
+/* Services Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--bg-color);
+    padding: 35px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+.card:hover { transform: translateY(-10px); border-color: var(--primary-color); }
+.card-icon { font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; }
+
+/* Education */
+.edu-item {
+    background: var(--bg-color);
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 10px;
+    border-left: 5px solid var(--primary-color);
+}
+
+/* Contact Form */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+input, textarea {
+    padding: 15px;
+    margin-bottom: 20px;
+    background: var(--bg-color);
+    border: 1px solid #444;
+    color: white;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+input:focus, textarea:focus { outline: none; border-color: var(--primary-color); }
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: var(--bg-secondary);
+    margin-top: 50px;
+    border-top: 1px solid #333;
+}

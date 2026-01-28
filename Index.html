@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fitfte | Web Developer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <nav>
+        <div class="logo">fitfte<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <img src="fitfte.jpg" alt="Abdi Profile Picture" class="profile-img">
+        
+        <h1>Hi, I'm <span class="highlight">fitfte</span></h1>
+        <p>Web Development Student & Aspiring Developer</p>
+        <div class="hero-btns">
+            <a href="#contact" class="btn">Hire Me</a>
+            <a href="#skills" class="btn btn-outline">See My Skills</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2><i class="fas fa-user"></i> About Me</h2>
+        <div class="about-content">
+            <p>Hello! I am fitfte, a passionate web development student located in Ethiopia. I am dedicated to building clean, functional, and user-friendly websites.</p> 
+            <p>I love the challenge of solving problems through code and am constantly learning new technologies to improve my stack. Currently focusing on mastering frontend technologies and diving deeper into backend PHP.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2><i class="fas fa-code"></i> My Skills</h2>
+        <div class="skill-container">
+            <div class="skill-box">
+                <span class="skill-name"><i class="fab fa-html5"></i> HTML</span>
+                <div class="progress-bar"><div class="progress" style="width: 90%;">90%</div></div>
+            </div>
+            <div class="skill-box">
+                <span class="skill-name"><i class="fab fa-css3-alt"></i> CSS</span>
+                <div class="progress-bar"><div class="progress" style="width: 85%;">85%</div></div>
+            </div>
+            <div class="skill-box">
+                <span class="skill-name"><i class="fab fa-js"></i> JavaScript</span>
+                <div class="progress-bar"><div class="progress" style="width: 70%;">70%</div></div>
+            </div>
+            <div class="skill-box">
+                <span class="skill-name"><i class="fab fa-php"></i> PHP</span>
+                <div class="progress-bar"><div class="progress" style="width: 75%;">75%</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2><i class="fas fa-briefcase"></i> Services</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-paint-brush card-icon"></i>
+                <h3>Web Design</h3>
+                <p>Creating visually appealing and modern website layouts that look great on all devices.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-laptop-code card-icon"></i>
+                <h3>Web Development</h3>
+                <p>Turning designs into functional, interactive, responsive websites using HTML, CSS, and JS.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+        <div class="edu-item">
+            <h3>Web Development Student</h3>
+            <p class="highlight">Current</p>
+            <p>Studying the fundamentals of Full-Stack development, focusing on building dynamic web applications.</p>
+        </div>
+    </section>
+
+<section id="contact">
+        <h2><i class="fas fa-envelope"></i> Contact Me</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 fitfte. Built with code.</p>
+    </footer>
+
+
+    <script>
+        // This script handles highlighting the navigation menu as you scroll
+        const sections = document.querySelectorAll("section");
+        const navLi = document.querySelectorAll("nav ul li a");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLi.forEach((a) => {
+                a.classList.remove("active");
+                if (a.classList.contains(current)) {
+                    a.classList.add("active");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
